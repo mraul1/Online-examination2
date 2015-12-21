@@ -1,0 +1,35 @@
+<p>
+<h2>Result</h2>
+<%= link_to "Result in Excel Sheet #{image_tag('excel.png')}".html_safe,exam_results_path(format: "xls"),{class:"btn btn-success",style:"position:relative;float:right;margin-top:-50px;"}  %>
+</p>
+<hr>
+<table class="table table-striped table-bordered">
+	<tr>
+		<th class="col-md-1"><center>Sr. No.</center></th>
+		<th class="col-md-6"><center>Student</center></th>
+		<th class="col-md-2"><center>Marks Obtained</center></th>
+		<th class="col-md-1"><center>Result</center></th>
+		<th class="col-md-2"><center>Download Result as PDF</center></th>
+	</tr>
+
+	<% i=1 %>
+	<% @results.each do |result| %>
+		<tr>
+			<td><center><%= i %></center></td>
+			<td>
+				<% @usr = User.find(result.user_id) %>
+				<%= @usr.email %>
+			</td>
+			<td><center><%= result.score %></center></td>
+			<td>
+				<% if result.score >= ((result.max_score)*(0.4)) %>
+					<center><p style="color:green;">Pass</p></center>
+				<% else %>
+					<center><p style="color:red;">Fail</p></center>
+				<% end %>
+			</td>
+			<td><center><%= link_to image_tag('pdf.png'),'#' %></center></td>
+			<% i+=1 %>
+		</tr>
+	<% end %>
+</table>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="<%= @exam.name %>">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Student</Data></Cell>
+        <Cell><Data ss:Type="String">Score</Data></Cell>
+        <Cell><Data ss:Type="String">Result</Data></Cell>
+      </Row>
+    <% i=1 %>
+    <% @results.each do |result| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= i %></Data></Cell>
+        <Cell><Data ss:Type="String">
+          <% @user = User.find(result.user_id) %>
+          <%= @user.email %>
+        </Data></Cell>
+        <Cell><Data ss:Type="Number"><%= result.score %></Data></Cell>
+        <Cell><Data ss:Type="String">
+          <% if result.score >= ((result.max_score)*(0.4)) %>
+            Pass
+          <% else %>
+            Fail
+          <% end %>
+        </Data></Cell>
+      </Row>
+      <% i+=1 %>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+

@@ -1,0 +1,21 @@
+<h2><strong><%= @exam.name %></strong></h2>
+<hr>
+<div class="row">
+	<div class="col-md-8">
+		<div class="well">
+			<br>
+			<h4><strong>Question : <%= @step.content %></strong></h4>
+			<br>
+			<%= form_tag action: :take_exam do %>
+				<% for answer in @step.options %>
+					<%= radio_button_tag("answer",answer.content,checked = false)  %>
+					<h5 style="margin-top:-20px;margin-left:40px"><%= answer.content %></h5><br>
+				<% end %>
+				<br>
+				<%= submit_tag "Answer",{class:"btn btn-primary",style:"background:#2c3e50;border:1px solid #2c3e50"} %>
+			<% end %>
+			<br>
+		</div>
+	</div>
+	<div class="col-md-4"></div>
+</div>

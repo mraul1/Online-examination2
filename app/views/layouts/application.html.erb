@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exam2</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render 'layouts/navbar' %>
+
+<div class="container" style="margin-top:-10px;margin-bottom:70px;">
+	<% if alert %>
+		<p class="alert"><%= alert %></p>
+	<% end %>
+	<%= yield %>	
+</div>
+
+<%= render 'layouts/footer' %>
+
+</body>
+</html>

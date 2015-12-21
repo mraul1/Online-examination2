@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-6"><h1>Exams</h1></div>
+  <div class="col-md-6">
+    <% if teacher_signed_in? %>
+      <%= link_to 'New Exam', new_exam_path,{ class:"btn btn-primary",  style:"float:right;margin-top:20px;background:#2c3e50;padding:10px;padding-left:15px;padding-right:15px;" } %>
+    <% end %>
+  </div>
+</div>
+  
+<hr>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th class="col-md-8">Exam</th>
+      <th class="col-md-4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exams.each do |exam| %>
+      <tr>
+        <td>
+          <% if teacher_signed_in? %>
+            <%= link_to exam.name,exam %>
+          <% else %>
+            <%= exam.name %>
+          <% end %>
+        </td>
+        <td><center><%= link_to 'Take Exam',take_exam_path(exam),{class:"btn btn-primary",style:"background:#2c3e50;border:1px solid #2c3e50"} %>
+        <% if teacher_signed_in? %>  
+          <%= link_to 'Result', exam_results_path(exam),class:"btn btn-primary" %>
+          <%= link_to 'Delete', exam, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %>
+        <% end %>  
+        </center></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

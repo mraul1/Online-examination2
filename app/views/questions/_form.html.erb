@@ -1,0 +1,23 @@
+<%= simple_form_for([@exam,@question]) do |f| %>
+  <%= f.error_notification %>
+  <div class="row">
+    <div class="col-md-5">
+      <%= f.input :content,label:"Question" %>
+      <%= f.input :answer %>
+      <%= f.input :marks %>
+    </div>
+    <div class="col-md-6">
+      <h4><strong>Options</strong></h4><hr>
+        <%= f.nested_fields_for :options do |ff| %>
+        	<div class="col-md-8" style="margin-left:40px;margin-top:5px;">
+        		<%= ff.input :content,label:"Option" %>
+        	</div>
+        	<%= ff.remove_nested_fields_link "Remove",{class:"btn btn-danger",style:"margin-top:30px;"} %>
+        <% end %>
+      <br>
+      <%= f.add_nested_fields_link :options,'Add an option',{class:"btn btn-primary",style:""} %>
+    </div>
+  </div>
+  <hr>
+  <%= f.button :submit,{style:"border:1px solid #2c3e50;background:#2c3e50;color:white"} %>
+<% end %>
