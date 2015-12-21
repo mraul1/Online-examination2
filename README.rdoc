@@ -26,3 +26,38 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+== How to Use
+
+Assuming that you have <tt>rails 4</tt> installed on your system,
+
+Go to project directory and execute following commands to create and migrate database files.
+
+<tt>rake db:create</tt>
+
+<tt>rake db:migrate</tt>
+
+Then run the local Webrick Server
+
+<tt>rails s</tt>
+
+This Online Examination System has Two modules:
+
+* Students 
+
+* Teachers
+
+The teachers are able to:
+
+1. Create New Exam
+2. Create Questions for exam.
+3. Add New Question.
+4. Edit / Delete Questions / Exams.
+5. Check Results for particular exam.
+6. Download the result in xls sheet.
+
+Students Can attempt the exam and the results will be declared immediately at the end of the exam.
+
+Authentication is required to attempt exam or create exams.
+
+Authentication is handled using <tt> Devise </tt>
