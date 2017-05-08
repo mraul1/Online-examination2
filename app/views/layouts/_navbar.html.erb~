@@ -1,4 +1,4 @@
- <nav class="navbar navbar-inverse" style="background:#2c3e50;border:0px;border-radius:0px;">
+ <nav class="navbar navbar-inverse" style="background:#453e50;border:0px;border-radius:0px;">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -31,15 +31,10 @@
         <ul id="myTab" class="nav nav-tabs">
           <li class="active"><a href="#signin" data-toggle="tab">Student</a></li>
           <li class=""><a href="#signup" data-toggle="tab">Teacher</a></li>
-          <li class=""><a href="#why" data-toggle="tab">Why?</a></li>
-        </ul>
+       </ul>
       </div>
       <div class="modal-body">
         <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade in" id="why">
-        <p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.</p>
-        <p></p><br> Please contact <a mailto:href="info@pict.edu"></a>PICT</a> for any other inquiries.</p>
-        </div>
         <div class="tab-pane fade active in" id="signin">
           <%
             def resource_name

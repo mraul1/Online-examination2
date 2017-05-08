@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-md-6"><h1>Exams</h1></div>
+  <div class="color:blue;font-family: verdana;font-size: 300%;"><h1>Welcome to Online Examination Portal!</h1></div>
   <div class="col-md-6">
     <% if teacher_signed_in? %>
-      <%= link_to 'New Exam', new_exam_path,{ class:"btn btn-primary",  style:"float:right;margin-top:20px;background:#2c3e50;padding:10px;padding-left:15px;padding-right:15px;" } %>
+      <%= link_to 'Create Exam', new_exam_path,{ class:"btn btn-primary",  style:"float:right;margin-top:20px;background:#564567;padding:8px;padding-left:12px;padding-right:12px;margin-right:450px" } %>
     <% end %>
   </div>
 </div>
@@ -11,8 +11,8 @@
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th class="col-md-8">Exam</th>
-      <th class="col-md-4"></th>
+      <th class="col-md-8">List of Exams</th>
+      <th class="col-md-2"></th>
     </tr>
   </thead>
 
@@ -26,10 +26,12 @@
             <%= exam.name %>
           <% end %>
         </td>
-        <td><center><%= link_to 'Take Exam',take_exam_path(exam),{class:"btn btn-primary",style:"background:#2c3e50;border:1px solid #2c3e50"} %>
+        <td>
         <% if teacher_signed_in? %>  
           <%= link_to 'Result', exam_results_path(exam),class:"btn btn-primary" %>
-          <%= link_to 'Delete', exam, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %>
+          <%= link_to 'Delete', exam, method: :delete, data: { confirm: 'Dang!Are you sure you want to delete the Exam?' },class:"btn btn-danger" %>
+        <% else %>
+            <center><%= link_to 'Take Exam',take_exam_path(exam),{class:"btn btn-primary",style:"background:#345678;border:1px solid #2c3e50"} %>
         <% end %>  
         </center></td>
       </tr>

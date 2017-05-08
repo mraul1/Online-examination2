@@ -29,6 +29,11 @@ gem 'devise'
 gem 'nested_form_fields'
 
 gem 'coffee-script-source','1.8.0'
+gem 'capybara', '2.4.4'
+gem 'rspec-rails', '3.4.2'
+gem 'simplecov', :require => false
+gem 'cucumber-rails', :require => false
+gem 'cucumber-rails-training-wheels'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
